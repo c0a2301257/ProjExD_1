@@ -8,12 +8,8 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 def main():
     pg.display.set_caption("はじめてのPygame")
     screen = pg.display.set_mode((800, 600))
-    pg.display.update()
     clock = pg.time.Clock()
     font = pg.font.Font(None, 80)
-    txt = fonto.render("hello",
-                       True, (255,255,255))
-    screen.blit(txt, [300,200])
 
     enn = pg.Surface((20, 20))
     pg.draw.circle(enn, (255, 0, 0), (10, 10), 10)
@@ -26,15 +22,16 @@ def main():
         
         txt = font.render(str(tmr), True, (255, 255, 255))
         screen.fill((50, 50, 50))
-        screen.blit(txt, [300, 200])
-        screen.blit(enn, [100, 400])
+        screen.blit(txt, [300, 200])#数字(surface)を300,200に表示
+        screen.blit(enn, [100, 400])#円(surface)を100,400に表示
         pg.display.update()
         tmr += 1        
         clock.tick(1)
+    
+
 
 
 if __name__ == "__main__":
-    os.chdir(os.path.dirname(os.path.abspath(__file__)))
     pg.init()
     main()
     pg.quit()
