@@ -10,12 +10,18 @@ def main():
     screen = pg.display.set_mode((800, 600))
     clock  = pg.time.Clock()
     bg_img = pg.image.load("fig/pg_bg.jpg")
+    koka_img = pg.image.load("fig/3.png")
+    koka_img = pg.transform.flip(koka_img,True,False)
+
     tmr = 0
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
         screen.blit(bg_img, [0, 0])
+        koka_rect = koka_img.get_rect()#こうかとんrect抽出
+        koka_rect.center = 300,200
+        screen.blit(koka_img,koka_rect)#koka_imgをkoka_rectの設定に従って貼り付け
         pg.display.update()
         tmr += 1        
         clock.tick(10)
