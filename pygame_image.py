@@ -19,9 +19,11 @@ def main():
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
-        x = tmr%1600
+        x = tmr%3200
         screen.blit(bg_img, [-x, 0])
         screen.blit(bg2_img, [-x+1600, 0])
+        screen.blit(bg_img, [-x+3200, 0])
+        screen.blit(bg2_img, [-x+6400, 0])
         koka_rect = koka_img.get_rect()#こうかとんrect抽出
         koka_rect.center = 300,200
         screen.blit(koka_img,koka_rect)#koka_imgをkoka_rectの設定に従って貼り付け
