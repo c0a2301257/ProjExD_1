@@ -33,11 +33,11 @@ def main():
         key_lst = pg.key.get_pressed()
         if key_lst[pg.K_UP]:
             koka_rect.move_ip((0,-1))
-        elif key_lst[pg.K_DOWN]:
+        if key_lst[pg.K_DOWN]:
             koka_rect.move_ip((0,+1))
-        elif key_lst[pg.K_LEFT]:
-            koka_rect.move_ip((-1,0))
-        elif key_lst[pg.K_RIGHT]:
+        if key_lst[pg.K_LEFT]:
+            koka_rect.move_ip((-2,0))
+        if key_lst[pg.K_RIGHT]:
             koka_rect.move_ip((+1,0))
 
         screen.blit(koka_img,koka_rect)#koka_imgをkoka_rectの設定に従って貼り付け
