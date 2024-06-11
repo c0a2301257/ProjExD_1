@@ -14,11 +14,12 @@ def main():
     koka_img = pg.transform.flip(koka_img,True,False)#画像反転
 
     tmr = 0
+    x = 0
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
-
-        screen.blit(bg_img, [0, 0])
+        x = tmr%800
+        screen.blit(bg_img, [-x, 0])
         koka_rect = koka_img.get_rect()#こうかとんrect抽出
         koka_rect.center = 300,200
         screen.blit(koka_img,koka_rect)#koka_imgをkoka_rectの設定に従って貼り付け
