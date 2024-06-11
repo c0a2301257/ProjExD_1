@@ -18,7 +18,9 @@ def main():
     koka_rect.center = 300,200
     tmr = 0
     x = 0
-
+    r=0
+    l=0
+    
     
 
     while True:
@@ -29,17 +31,28 @@ def main():
         screen.blit(bg2_img, [-x+1600, 0])
         screen.blit(bg_img, [-x+3200, 0])
         screen.blit(bg2_img, [-x+4800, 0])
-        koka_rect.move_ip((-1,0))
-
+        
+        
+        # key_lst = pg.key.get_pressed()
+        # if key_lst[pg.K_UP]:
+        #     koka_rect.move_ip((0,-1))
+        # if key_lst[pg.K_DOWN]:
+        #     koka_rect.move_ip((0,+1))
+        # if key_lst[pg.K_LEFT]:
+        #     koka_rect.move_ip((-1,0))
+        # if key_lst[pg.K_RIGHT]:
+        #     koka_rect.move_ip((+2,0))
         key_lst = pg.key.get_pressed()
+        r,l = -1,0
         if key_lst[pg.K_UP]:
-            koka_rect.move_ip((0,-1))
+            l = -1
         if key_lst[pg.K_DOWN]:
-            koka_rect.move_ip((0,+1))
+            l = +1
         if key_lst[pg.K_LEFT]:
-            koka_rect.move_ip((-1,0))
+            r = -2
         if key_lst[pg.K_RIGHT]:
-            koka_rect.move_ip((+2,0))
+            r = 2
+        koka_rect.move_ip((r,l))
 
         screen.blit(koka_img,koka_rect)#koka_imgをkoka_rectの設定に従って貼り付け
         pg.display.update()
